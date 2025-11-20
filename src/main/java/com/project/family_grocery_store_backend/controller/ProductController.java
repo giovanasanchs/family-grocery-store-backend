@@ -1,6 +1,6 @@
 package com.project.family_grocery_store_backend.controller;
 
-import com.project.family_grocery_store_backend.model.Product;
+import com.project.family_grocery_store_backend.dto.ProductDTO;
 import com.project.family_grocery_store_backend.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +18,13 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAll() {
+    public List<ProductDTO> getAll() {
         return service.findAll();
     }
 
     @PostMapping
-    public Product save(@RequestBody Product product) {
-        return service.save(product);
+    public ProductDTO save(@RequestBody ProductDTO dto) {
+        return service.save(dto);
     }
 
     @DeleteMapping("/{id}")
@@ -33,12 +33,12 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getById(@PathVariable Long id) {
+    public ProductDTO getById(@PathVariable Long id) {
         return service.findById(id);
     }
 
     @GetMapping("/barcode/{barcode}")
-    public Product getByBarcode(@PathVariable String barcode) {
+    public ProductDTO getByBarcode(@PathVariable String barcode) {
         return service.findByBarcode(barcode);
     }
 }

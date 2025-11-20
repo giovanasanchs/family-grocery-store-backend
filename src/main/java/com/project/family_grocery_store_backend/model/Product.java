@@ -26,6 +26,8 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    public Product(String name, String barcode, Double purchasePrice, Double salePrice, Integer stockQuantity, Category category) {
+    }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
