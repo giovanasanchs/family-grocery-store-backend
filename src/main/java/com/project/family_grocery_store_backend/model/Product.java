@@ -17,10 +17,14 @@ public class Product {
     private Double salePrice;
     private Double profit;
     private Integer stockQuantity;
+
     private LocalDate expirationDate;
     private LocalDate createdAt;
     private LocalDate updatedAt;
-    private String category;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 
     public Long getId() { return id; }
@@ -53,6 +57,8 @@ public class Product {
     public LocalDate getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDate updatedAt) { this.updatedAt = updatedAt; }
 
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    public Category getCategory() { return category; }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
